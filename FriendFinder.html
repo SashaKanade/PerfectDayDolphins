@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FriendFinder</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="javascript" href="js/app.js">
+    <link rel="javascript" href="js/database.js">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
+    <p id="displayAge"></p>
     <header class="navbar">
         <div class="logo">FriendFinder</div>
         <nav>
@@ -23,8 +25,6 @@
         </section>
 
         <section class="member-list">
-
-            <!-- Member Card -->
             <article class="member-card">
                 <h2 class="member-name">Sarah Johnson</h2>
                 <ul class="member-details">
@@ -36,38 +36,32 @@
                     <li><span class="label">Free Days:</span> Saturday, Sunday</li>
                 </ul>
             </article>
-
-            <!-- Member Card -->
             <article class="member-card">
                 <h2 class="member-name">Daniel Lee</h2>
                 <ul class="member-details">
                     <li><span class="label">Age:</span> 14</li>
                     <li><span class="label">Email:</span> daniel.lee@gmail.com</li>
                     <li><span class="label">Gender:</span> Male</li>
-                    <li><span class="label">City:</span> Whitby</li>
+                    <li><span class="label">City:</span> Oakville</li>
                     <li><span class="label">Hobbies:</span> Basketball, Cooking, Gaming</li>
                     <li><span class="label">Free Days:</span> Friday, Saturday</li>
                 </ul>
             </article>
-
-            <!-- Member Card -->
             <article class="member-card">
                 <h2 class="member-name">Priya Patel</h2>
                 <ul class="member-details">
                     <li><span class="label">Age:</span> 17</li>
                     <li><span class="label">Email:</span> priya.patel@gmail.com</li>
                     <li><span class="label">Gender:</span> Female</li>
-                    <li><span class="label">City:</span> Oakville</li>
+                    <li><span class="label">City:</span> Toronto</li>
                     <li><span class="label">Hobbies:</span> Reading, Yoga, Painting</li>
                     <li><span class="label">Free Days:</span> Sunday, Monday</li>
                 </ul>
             </article>
-
-            <!-- Member Card -->
             <article class="member-card">
                 <h2 class="member-name">Marcus Chen</h2>
                 <ul class="member-details">
-                    <li><span class="label">Age:</span> 19</li>
+                    <li><span class="label">Age:</span> 16</li>
                     <li><span class="label">Email:</span> marcus.chen@gmail.com</li>
                     <li><span class="label">Gender:</span> Male</li>
                     <li><span class="label">City:</span> Toronto</li>
@@ -75,8 +69,115 @@
                     <li><span class="label">Free Days:</span> Tuesday, Thursday</li>
                 </ul>
             </article>
-
+            <article class="member-card">
+                <h2 class="member-name">Amira Navaneethan</h2>
+                <ul class="member-details">
+                    <li><span class="label">Age:</span> 13</li>
+                    <li><span class="label">Email:</span> breakfast.is.superior@gmail.com</li>
+                    <li><span class="label">Gender:</span> Female</li>
+                    <li><span class="label">City:</span> Mississauga</li>
+                    <li><span class="label">Hobbies:</span> Ziplining, Eating, Watching</li>
+                    <li><span class="label">Free Days:</span> Wednesday, Friday</li>
+                </ul>
+            </article>
+            <article class="member-card">
+                <h2 class="member-name">Bob Titus</h2>
+                <ul class="member-details">
+                    <li><span class="label">Age:</span> 15</li>
+                    <li><span class="label">Email:</span> bobisgreat@pancake.com</li>
+                    <li><span class="label">Gender:</span> Male</li>
+                    <li><span class="label">City:</span> Toronto</li>
+                    <li><span class="label">Hobbies:</span> Walking, Juggling, Unicycling</li>
+                    <li><span class="label">Free Days:</span> Tuesday</li>
+                </ul>
+            </article>
         </section>
     </main>
+    <script>
+        const  age = localStorage.getItem("age");
+        const friends = [
+    {
+        name: "Sarah Johnson",
+        age: 18,
+        gender: "Female",
+        email: "sarah.johnson@gmail.com",
+        city: "Toronto",
+        hobbies: ["Hiking", "Photography", "Board Games"],
+        freeDays: ["Saturday", "Sunday"]
+
+    },
+
+    {
+        name: "Daniel Lee",
+        age: 14,
+        gender: "Male",
+        email: "daniel.lee@gmail.com",
+        city: "Oakville",
+        hobbies: ["Basketball", "Cooking", "Gaming"],
+        freeDays: ["Friday", "Saturday"]
+
+    },
+
+    {
+        name: "Priya Patel",
+        age: 17,
+        gender: "Female",
+        email: "priya.patel@gmail.com",
+        city: "Toronto",
+        hobbies: ["Reading", "Yoga", "Painting"],
+        freeDays: ["Sunday", "Monday"]
+    },
+
+    {
+        name: "Marcus Chen",
+        age: 16,
+        gender: "Male", 
+        email: "marcus.chen@gmail.com",
+        city: "Toronto",
+        hobbies: ["Cycling", "Chess", "Music"],
+        freeDays: ["Tuesday", "Thursday"]
+    },
+
+    {
+        name: "Amira Navaneethan",
+        age: 13,
+        gender: "Female",
+        email: "breakfast.is.superior@gmail.com",
+        city: "Mississauga",
+        hobbies: ["Ziplining", "Eating", "Watching"],
+        freeDays: ["Wednesday", "Friday"]
+    },
+
+    {
+        name: "Bob Titus",
+        age: 15,
+        gender: "Male",
+        email: "bobisgreat@pancake.com",
+        city: "Toronto",
+        hobbies: ["Walking", "Juggling", "Unicycling"],
+        freeDays: ["Tuesday"]
+    }
+]
+       
+for (let friend of friends) {
+    if (friend.age == age) {
+
+            document.getElementById("match").innerHTML = 
+                <article class="member-card">
+                    <h2 class="member-name">Amira Navaneethan</h2>
+                    <ul class="member-details">
+                        <li><span class="label">Age:</span> ${friend.age}</li>
+                        <li><span class="label">Email:</span> ${friend.email}</li>
+                        <li><span class="label">Gender:</span> ${friend.gender}</li>
+                        <li><span class="label">City:</span> ${friend.city}</li>
+                        <li><span class="label">Hobbies:</span> ${friend.hobbies}</li>
+                        <li><span class="label">Free Days:</span> ${friend.freeDays}</li>
+                    </ul>
+                </article>
+            ;
+        }
+        document.getElementById("displayAge").textContent = age;
+    }
+    </script>
 </body>
 </html>
