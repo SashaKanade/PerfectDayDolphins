@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- Perfect Day Friend Finder
+Sasha, Annie, & Brianna
+29.08.26
+Sunbeam Toronto -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +13,6 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <p id="displayAge"></p>
     <header class="navbar">
         <div class="logo">FriendFinder</div>
         <nav>
@@ -20,6 +23,7 @@
     </header>
 
     <main>
+        <div id="match"></div>
         <section class="page-intro">
             <h1>Find Friends</h1>
         </section>
@@ -159,25 +163,24 @@
     }
 ]
        
-for (let friend of friends) {
-    if (friend.age == age) {
-
-            document.getElementById("match").innerHTML = 
+    for (let friend of friends) {
+        if (friend.age == age) {
+            document.getElementById("match").innerHTML = `
                 <article class="member-card">
-                    <h2 class="member-name">Amira Navaneethan</h2>
+                    <h2 class="member-name">${friend.name}</h2>
                     <ul class="member-details">
-                        <li><span class="label">Age:</span> ${friend.age}</li>
-                        <li><span class="label">Email:</span> ${friend.email}</li>
-                        <li><span class="label">Gender:</span> ${friend.gender}</li>
-                        <li><span class="label">City:</span> ${friend.city}</li>
-                        <li><span class="label">Hobbies:</span> ${friend.hobbies}</li>
-                        <li><span class="label">Free Days:</span> ${friend.freeDays}</li>
+                        <li>Age: ${friend.age}</li>
+                        <li>Email: ${friend.email}</li>
+                        <li>Gender: ${friend.gender}</li>
+                        <li>City: ${friend.city}</li>
+                        <li>Hobbies: ${friend.hobbies.join(", ")}</li>
+                        <li>Free Days: ${friend.freeDays.join(", ")}</li>
                     </ul>
                 </article>
-            ;
+            `;
         }
-        document.getElementById("displayAge").textContent = age;
     }
+    document.getElementById("displayAge").textContent = age;
     </script>
 </body>
 </html>
