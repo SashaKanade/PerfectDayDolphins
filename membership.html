@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Your Perfect Day</title>
+        <title>Your Perfect Day Membership</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles.css"/>
+        <link rel="stylesheet" href="css/styles.css"/>
     </head>
     <body>
-        <h1 class="head-group">Perfect Day</h1>
+        <h1 class="head-group">Your Perfect Day</h1>
         <nav class="navbar" aria-label="Main navigation">
             <div class="list-group">
                 <h3><a href="dolphins.html">Home Page</a></h3>
@@ -35,8 +35,8 @@
         <br>
         <form id="profileForm">
             <div class="info-group">
-                <input type="firstname" id="name" placeholder="First Name" required>
-                <input type="lastname" id="name" placeholder="Last Name" required>
+                <input type="firstname" id="firstname" placeholder="First Name" required>
+                <input type="lastname" id="lastname" placeholder="Last Name" required>
                 <input type="number" id="age" placeholder="Age" required>
                 <input type="email" id="email" placeholder="Email" required>
                 <select id="gender" required>
@@ -90,10 +90,23 @@
             <br><br>
         </fieldset>
         <br>
-        <button type="submit" href="FriendFinder.html">Find Matches!</button>
+        <button style="width: 150px; height: 50px;" type="submit" href="FriendFinder.html">Find Matches!</button>
     </form>
     <br><br><br><br><br>
     <p>© All rights reserved. Friend Finder.</p>
     <br><br><br>
+    <script>
+        const form = document.getElementById("profileForm");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const age = document.getElementById("age").value;
+
+            localStorage.setItem("age", age);
+
+            window.location.href = "friendfinder.html";
+        });
+    </script>
     </body>
 </html>
